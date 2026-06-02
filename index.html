@@ -3,176 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no">
-    <title>Персональный женский тест | Расширенный анализ</title>
+    <title>Достоверный женский симптом-чекер | Расширенный анализ</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
-            background: linear-gradient(160deg, #faf4f7 0%, #f0e2ec 50%, #fef5f2 100%);
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: linear-gradient(165deg, #f9f4f7 0%, #f2e6ee 40%, #fdf3ef 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            margin: 0;
         }
-
         .card {
-            max-width: 720px;
+            max-width: 750px;
             width: 100%;
             background: #ffffff;
-            border-radius: 48px;
-            box-shadow: 0 35px 60px rgba(140, 100, 120, 0.15), 0 15px 30px rgba(170, 130, 145, 0.2);
-            padding: 2.5rem 2.2rem 2.8rem;
+            border-radius: 44px;
+            box-shadow: 0 35px 60px rgba(130, 90, 110, 0.13), 0 15px 30px rgba(160, 110, 130, 0.16);
+            padding: 2.4rem 2.2rem 2.6rem;
             border: 1px solid rgba(235, 210, 220, 0.9);
-            transition: all 0.2s;
         }
-
         h1 {
-            font-size: 2.1rem;
+            font-size: 2rem;
             font-weight: 650;
-            color: #4f3240;
+            color: #4a3140;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.2rem;
         }
         h1 span {
-            background: #f2dae6;
+            background: #f1d8e5;
             padding: 0.2rem 1.2rem;
             border-radius: 40px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
-            color: #aa5470;
+            color: #aa4e6a;
         }
-
         .subhead {
             text-align: center;
             color: #7a6270;
-            margin-bottom: 2rem;
+            margin-bottom: 1.8rem;
             border-bottom: 1px dashed #e4cdd8;
             padding-bottom: 1rem;
             font-size: 0.95rem;
         }
-
-        .calendar-section {
+        .section {
             background: #fdf7fa;
-            border-radius: 30px;
+            border-radius: 28px;
             padding: 1.4rem 1.5rem;
-            margin-bottom: 1.8rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: flex-end;
+            margin-bottom: 1.5rem;
             border: 1px solid #edd8e2;
         }
-
-        .date-field {
-            flex: 1;
-            min-width: 180px;
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .date-field label {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #5b404e;
+        .section h2 {
+            font-size: 1.1rem;
+            font-weight: 650;
+            color: #523544;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.4rem;
         }
-
+        .calendar-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: flex-end;
+        }
+        .date-field {
+            flex: 1;
+            min-width: 170px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .date-field label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #5b404e;
+        }
         .date-field input[type="date"] {
-            padding: 0.8rem 1rem;
-            border-radius: 20px;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
             border: 1px solid #ddc2d0;
             background: white;
-            font-size: 0.95rem;
-            color: #38282f;
+            font-size: 0.9rem;
             outline: none;
-            transition: 0.2s;
             font-family: inherit;
         }
         .date-field input[type="date"]:focus {
             border-color: #c45b7a;
             box-shadow: 0 0 0 3px rgba(196, 91, 122, 0.15);
         }
-
+        .inline-fields {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+        .field-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        .field-group label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #5b404e;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .field-group select, .field-group input {
+            width: 100%;
+            padding: 0.7rem 0.9rem;
+            border-radius: 18px;
+            border: 1px solid #ddc2d0;
+            font-size: 0.9rem;
+            background: white;
+            outline: none;
+            font-family: inherit;
+        }
         .symptoms-grid {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
-            margin: 1.2rem 0 1.8rem;
+            gap: 0.7rem;
         }
-
         .symptom-item {
             display: flex;
             align-items: center;
             background: #fdf7fa;
-            border-radius: 24px;
-            padding: 0.8rem 1.2rem;
+            border-radius: 22px;
+            padding: 0.7rem 1.1rem;
             border: 1px solid transparent;
             cursor: pointer;
-            transition: background 0.2s, box-shadow 0.2s;
+            transition: 0.2s;
         }
         .symptom-item:hover {
             background: #fff1f6;
             border-color: #e4b7cc;
-            box-shadow: 0 6px 14px rgba(190, 120, 145, 0.12);
         }
-
         .symptom-item input[type="checkbox"] {
-            width: 21px;
-            height: 21px;
+            width: 20px;
+            height: 20px;
             accent-color: #c45b7a;
-            margin-right: 0.9rem;
+            margin-right: 0.8rem;
             flex-shrink: 0;
             cursor: pointer;
         }
-
         .symptom-text {
             font-weight: 500;
             color: #3d2d34;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            font-size: 1rem;
         }
-
         .action-buttons {
             display: flex;
             gap: 0.9rem;
-            margin: 1.8rem 0 1.6rem;
+            margin: 1.8rem 0 1.2rem;
             flex-wrap: wrap;
         }
-
         .btn {
             flex: 1;
             min-width: 130px;
             background: #f3ecef;
             border: none;
-            padding: 0.95rem 1.2rem;
+            padding: 0.9rem 1.2rem;
             border-radius: 34px;
             font-weight: 600;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: 0.25s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
             border: 1px solid #e1d2d9;
             color: #4d3640;
+            transition: 0.2s;
         }
         .btn-primary {
             background: #c45b7a;
@@ -180,354 +191,353 @@
             border: 1px solid #b44a6a;
             box-shadow: 0 10px 18px rgba(180, 80, 110, 0.3);
         }
-        .btn-primary:hover {
-            background: #b44d6b;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(130, 80, 100, 0.15);
-        }
-
+        .btn-primary:hover { background: #b44d6b; }
+        .btn:hover { transform: translateY(-2px); }
         .verdict-box {
-            margin-top: 1.2rem;
             background: #fefafc;
-            border-radius: 30px;
-            padding: 1.6rem 1.5rem;
+            border-radius: 28px;
+            padding: 1.5rem 1.5rem;
             border: 1px solid #eedbe4;
-            transition: 0.3s;
             line-height: 1.5;
         }
-
         .verdict-title {
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #452b36;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.6rem;
         }
-
         .verdict-desc {
             color: #4d3a42;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
-
-        .additional-info {
-            font-size: 0.85rem;
-            color: #826a75;
-            margin-top: 0.8rem;
-            border-top: 1px solid #efdfe7;
-            padding-top: 0.8rem;
-        }
-
         .disclaimer {
             font-size: 0.8rem;
             color: #9e8992;
-            margin-top: 1.6rem;
+            margin-top: 1.5rem;
             text-align: center;
             border-top: 1px solid #f0e2ea;
             padding-top: 1.2rem;
         }
-
-        @media (max-width: 500px) {
-            .card {
-                padding: 1.8rem 1.3rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>
-            🌸 Персональный женский тест
-            <span>расширенный</span>
-        </h1>
-        <div class="subhead">
-            📅 Укажите даты и отметьте симптомы — получите детальный вердикт
-        </div>
+<div class="card">
+    <h1>🌸 Женский симптом-чекер <span>детальный</span></h1>
+    <div class="subhead">📋 Заполните все поля для наиболее точной оценки</div>
 
-        <!-- Календарный блок -->
-        <div class="calendar-section">
+    <!-- Секция: возраст и цикл -->
+    <div class="section">
+        <h2>📌 Основные данные</h2>
+        <div class="inline-fields">
+            <div class="field-group">
+                <label>🎂 Возраст</label>
+                <input type="number" id="ageInput" placeholder="25" min="12" max="65" value="28">
+            </div>
+            <div class="field-group">
+                <label>🔄 Длительность цикла (дней)</label>
+                <input type="number" id="cycleLengthInput" placeholder="28" min="20" max="45" value="28">
+            </div>
+            <div class="field-group">
+                <label>📆 Регулярность цикла</label>
+                <select id="cycleRegularity">
+                    <option value="regular">Регулярный (±2 дня)</option>
+                    <option value="slightly">Умеренно нерегулярный</option>
+                    <option value="irregular">Нерегулярный</option>
+                </select>
+            </div>
+        </div>
+        <div class="calendar-row" style="margin-top:1rem;">
             <div class="date-field">
-                <label>📆 Первый день последних месячных</label>
-                <input type="date" id="lastPeriodDate" />
+                <label>📅 Первый день последних месячных</label>
+                <input type="date" id="lastPeriodDate">
             </div>
             <div class="date-field">
                 <label>💑 Дата полового акта (если был)</label>
-                <input type="date" id="intercourseDate" />
+                <input type="date" id="intercourseDate">
             </div>
-        </div>
-
-        <!-- Симптомы -->
-        <div class="symptoms-grid" id="symptomsContainer"></div>
-
-        <div class="action-buttons">
-            <button class="btn" id="resetBtn"><span>↺</span> Сбросить</button>
-            <button class="btn btn-primary" id="calculateBtn">🔍 Получить вердикт</button>
-        </div>
-
-        <!-- Вердикт -->
-        <div class="verdict-box" id="verdictBox">
-            <div class="verdict-title">✨ Ожидание данных</div>
-            <div class="verdict-desc">Заполните календарь и отметьте симптомы, затем нажмите «Получить вердикт».</div>
-        </div>
-
-        <div class="disclaimer">
-            ⚕️ Алгоритм ознакомительный. Не откладывайте визит к врачу при серьёзных симптомах.
         </div>
     </div>
 
-    <script>
-        (function() {
-            // ---------- симптомы ----------
-            const symptomsList = [
-                { id: 'nausea', text: 'Тошнота / утреннее недомогание', emoji: '🤢' },
-                { id: 'breastTenderness', text: 'Чувствительность / набухание груди', emoji: '🌸' },
-                { id: 'fatigue', text: 'Сильная усталость, сонливость', emoji: '😴' },
-                { id: 'frequentUrination', text: 'Частое мочеиспускание', emoji: '🚽' },
-                { id: 'foodAversions', text: 'Отвращение к запахам / еде', emoji: '👃' },
-                { id: 'moodSwings', text: 'Перепады настроения', emoji: '🎭' },
-                { id: 'bloating', text: 'Вздутие живота', emoji: '🫃' },
-                { id: 'spotting', text: 'Кровянистые выделения (не менструация)', emoji: '🩸' },
-                { id: 'dizziness', text: 'Головокружение', emoji: '💫' },
-                { id: 'hotFlashes', text: 'Приливы жара / потливость', emoji: '🔥' },
-                { id: 'vaginalDryness', text: 'Сухость влагалища', emoji: '💧' },
-                { id: 'sleepDisturbance', text: 'Бессонница / нарушения сна', emoji: '🌙' },
-                { id: 'headache', text: 'Головные боли', emoji: '🤕' },
-                { id: 'acne', text: 'Высыпания, акне', emoji: '💥' },
-                { id: 'lowerBackPain', text: 'Боль в пояснице', emoji: '🔹' }
-            ];
+    <!-- Секция: симптомы (обширный список) -->
+    <div class="section">
+        <h2>🩺 Симптомы (отметьте все, что наблюдаете)</h2>
+        <div class="symptoms-grid" id="symptomsContainer"></div>
+    </div>
 
-            const container = document.getElementById('symptomsContainer');
-            const lastPeriodInput = document.getElementById('lastPeriodDate');
-            const intercourseInput = document.getElementById('intercourseDate');
-            const calcBtn = document.getElementById('calculateBtn');
-            const resetBtn = document.getElementById('resetBtn');
-            const verdictBox = document.getElementById('verdictBox');
+    <!-- Дополнительные важные вопросы -->
+    <div class="section">
+        <h2>❗ Дополнительные факторы</h2>
+        <div class="inline-fields">
+            <div class="field-group">
+                <label>🤰 Делали ли тест на беременность?</label>
+                <select id="pregnancyTest">
+                    <option value="none">Не делала</option>
+                    <option value="positive">Положительный</option>
+                    <option value="negative">Отрицательный</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label>💊 Приём гормональных контрацептивов?</label>
+                <select id="hormonalContraception">
+                    <option value="no">Нет</option>
+                    <option value="yes">Да</option>
+                </select>
+            </div>
+        </div>
+        <div class="inline-fields" style="margin-top:0.8rem;">
+            <div class="field-group">
+                <label>😰 Уровень стресса (последнее время)</label>
+                <select id="stressLevel">
+                    <option value="low">Низкий</option>
+                    <option value="medium">Средний</option>
+                    <option value="high">Высокий</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label>⚖️ Резкое изменение веса?</label>
+                <select id="weightChange">
+                    <option value="no">Нет</option>
+                    <option value="loss">Похудение</option>
+                    <option value="gain">Набор веса</option>
+                </select>
+            </div>
+        </div>
+    </div>
 
-            // Рендер симптомов
-            function renderSymptoms() {
-                if (!container) return;
-                container.innerHTML = '';
-                symptomsList.forEach(s => {
-                    const div = document.createElement('div');
-                    div.className = 'symptom-item';
-                    const cb = document.createElement('input');
-                    cb.type = 'checkbox';
-                    cb.id = `sym_${s.id}`;
-                    cb.dataset.symptomId = s.id;
-                    const label = document.createElement('label');
-                    label.htmlFor = `sym_${s.id}`;
-                    label.className = 'symptom-text';
-                    label.innerHTML = `<span>${s.emoji}</span> ${s.text}`;
-                    div.appendChild(cb);
-                    div.appendChild(label);
-                    div.addEventListener('click', (e) => {
-                        if (e.target.tagName !== 'INPUT') {
-                            cb.checked = !cb.checked;
-                            cb.dispatchEvent(new Event('change', { bubbles: true }));
-                        }
-                    });
-                    container.appendChild(div);
-                });
-            }
+    <div class="action-buttons">
+        <button class="btn" id="resetBtn">↺ Сбросить</button>
+        <button class="btn btn-primary" id="calculateBtn">🔍 Получить достоверный вердикт</button>
+    </div>
 
-            function getSelectedIds() {
-                return Array.from(document.querySelectorAll('#symptomsContainer input[type="checkbox"]'))
-                    .filter(cb => cb.checked)
-                    .map(cb => cb.dataset.symptomId);
-            }
+    <div class="verdict-box" id="verdictBox">
+        <div class="verdict-title">✨ Ожидание данных</div>
+        <div class="verdict-desc">Заполните анкету и нажмите кнопку анализа.</div>
+    </div>
+    <div class="disclaimer">⚕️ Алгоритм носит справочный характер. Окончательный диагноз ставит только врач.</div>
+</div>
 
-            function parseDate(dateInput) {
-                if (!dateInput || !dateInput.value) return null;
-                const d = new Date(dateInput.value);
-                if (isNaN(d.getTime())) return null;
-                d.setHours(0,0,0,0);
-                return d;
-            }
+<script>
+(function() {
+    const symptomsList = [
+        { id: 'nausea', text: 'Тошнота / утреннее недомогание', emoji: '🤢' },
+        { id: 'vomiting', text: 'Рвота', emoji: '🤮' },
+        { id: 'breastTenderness', text: 'Болезненность / набухание груди', emoji: '🌸' },
+        { id: 'breastEnlargement', text: 'Увеличение груди', emoji: '🍈' },
+        { id: 'fatigue', text: 'Сильная усталость, сонливость', emoji: '😴' },
+        { id: 'frequentUrination', text: 'Частое мочеиспускание', emoji: '🚽' },
+        { id: 'foodAversions', text: 'Отвращение к запахам / еде', emoji: '👃' },
+        { id: 'cravings', text: 'Необычные пищевые пристрастия', emoji: '🍫' },
+        { id: 'moodSwings', text: 'Перепады настроения, раздражительность', emoji: '🎭' },
+        { id: 'bloating', text: 'Вздутие живота', emoji: '🫃' },
+        { id: 'spotting', text: 'Кровянистые выделения вне менструации', emoji: '🩸' },
+        { id: 'dizziness', text: 'Головокружение / обмороки', emoji: '💫' },
+        { id: 'hotFlashes', text: 'Приливы жара / ночная потливость', emoji: '🔥' },
+        { id: 'vaginalDryness', text: 'Сухость влагалища', emoji: '💧' },
+        { id: 'sleepDisturbance', text: 'Бессонница / нарушения сна', emoji: '🌙' },
+        { id: 'headache', text: 'Головные боли', emoji: '🤕' },
+        { id: 'acne', text: 'Высыпания на коже / акне', emoji: '💥' },
+        { id: 'lowerBackPain', text: 'Боль в пояснице', emoji: '🔹' },
+        { id: 'abdominalCramps', text: 'Спазмы внизу живота', emoji: '‼️' },
+        { id: 'constipation', text: 'Запор', emoji: '🧻' },
+        { id: 'diarrhea', text: 'Диарея', emoji: '💨' },
+        { id: 'metallicTaste', text: 'Металлический привкус во рту', emoji: '🪙' },
+        { id: 'nosebleeds', text: 'Носовые кровотечения', emoji: '👃🩸' },
+        { id: 'libidoChange', text: 'Изменение либидо', emoji: '❤️‍🔥' }
+    ];
 
-            function daysBetween(d1, d2) {
-                return Math.round((d2 - d1) / (1000 * 60 * 60 * 24));
-            }
+    const container = document.getElementById('symptomsContainer');
+    function renderSymptoms() {
+        container.innerHTML = '';
+        symptomsList.forEach(s => {
+            const div = document.createElement('div');
+            div.className = 'symptom-item';
+            const cb = document.createElement('input');
+            cb.type = 'checkbox';
+            cb.id = 'sym_'+s.id;
+            cb.dataset.id = s.id;
+            const label = document.createElement('label');
+            label.htmlFor = 'sym_'+s.id;
+            label.className = 'symptom-text';
+            label.innerHTML = `<span>${s.emoji}</span> ${s.text}`;
+            div.appendChild(cb); div.appendChild(label);
+            div.addEventListener('click', e => { if(e.target.tagName!=='INPUT'){ cb.checked=!cb.checked; cb.dispatchEvent(new Event('change',{bubbles:true})); } });
+            container.appendChild(div);
+        });
+    }
 
-            // Главная логика вердикта
-            function generateVerdict() {
-                const periodDate = parseDate(lastPeriodInput);
-                const intercourseDate = parseDate(intercourseInput);
-                const today = new Date(); today.setHours(0,0,0,0);
-                const selectedSymptoms = getSelectedIds();
+    function getVal(id) { return document.getElementById(id)?.value; }
+    function getSelect(id) { return document.getElementById(id)?.value; }
+    function getCheckedIds() {
+        return Array.from(document.querySelectorAll('#symptomsContainer input:checked')).map(cb=>cb.dataset.id);
+    }
 
-                let delayDays = null;
-                if (periodDate) {
-                    // Примерная длительность цикла 28 дней; ожидаемые месячные = период + 28
-                    const expectedPeriod = new Date(periodDate);
-                    expectedPeriod.setDate(expectedPeriod.getDate() + 28);
-                    delayDays = daysBetween(expectedPeriod, today);
-                    if (delayDays < 0) delayDays = 0; // ещё не задержка
-                }
+    function parseDate(id) {
+        const v = document.getElementById(id)?.value;
+        if(!v) return null;
+        const d = new Date(v); d.setHours(0,0,0,0);
+        return isNaN(d.getTime()) ? null : d;
+    }
 
-                let daysSinceIntercourse = null;
-                if (intercourseDate) {
-                    daysSinceIntercourse = daysBetween(intercourseDate, today);
-                    if (daysSinceIntercourse < 0) daysSinceIntercourse = null;
-                }
+    function daysBetween(d1,d2) { return Math.round((d2-d1)/(86400000)); }
 
-                // Симптоматические баллы для категорий (упрощённо)
-                let pregScore = 0, pmsScore = 0, periScore = 0;
-                selectedSymptoms.forEach(id => {
-                    if (id === 'nausea') { pregScore += 2.5; pmsScore += 0.8; }
-                    else if (id === 'breastTenderness') { pregScore += 2; pmsScore += 2.2; periScore += 1.2; }
-                    else if (id === 'fatigue') { pregScore += 1.8; pmsScore += 1.8; periScore += 2; }
-                    else if (id === 'frequentUrination') { pregScore += 1.6; }
-                    else if (id === 'foodAversions') { pregScore += 2; }
-                    else if (id === 'moodSwings') { pregScore += 1.4; pmsScore += 2.2; periScore += 2; }
-                    else if (id === 'bloating') { pregScore += 1.2; pmsScore += 2; periScore += 1.5; }
-                    else if (id === 'spotting') { pregScore += 1.5; periScore += 1.8; }
-                    else if (id === 'dizziness') { pregScore += 1; periScore += 1.2; }
-                    else if (id === 'hotFlashes') { periScore += 3.5; }
-                    else if (id === 'vaginalDryness') { periScore += 3.2; }
-                    else if (id === 'sleepDisturbance') { pmsScore += 1.5; periScore += 2.4; }
-                    else if (id === 'headache') { pmsScore += 1.3; periScore += 1.4; }
-                    else if (id === 'acne') { pmsScore += 1.6; }
-                    else if (id === 'lowerBackPain') { pmsScore += 1.4; periScore += 1.3; }
-                });
+    function generateVerdict() {
+        const age = parseInt(getVal('ageInput')) || 28;
+        const cycleLen = parseInt(getVal('cycleLengthInput')) || 28;
+        const regularity = getSelect('cycleRegularity');
+        const periodDate = parseDate('lastPeriodDate');
+        const intercourseDate = parseDate('intercourseDate');
+        const testResult = getSelect('pregnancyTest');
+        const contraception = getSelect('hormonalContraception');
+        const stress = getSelect('stressLevel');
+        const weightChange = getSelect('weightChange');
+        const selected = getCheckedIds();
+        const today = new Date(); today.setHours(0,0,0,0);
 
-                // Учёт задержки
-                if (delayDays !== null && delayDays >= 5) {
-                    pregScore += (delayDays * 0.7);
-                    if (delayDays > 14) pregScore += 3;
-                }
+        let delayDays = 0;
+        if(periodDate) {
+            const expected = new Date(periodDate);
+            expected.setDate(expected.getDate() + cycleLen);
+            delayDays = daysBetween(expected, today);
+            if(delayDays<0) delayDays=0;
+        }
+        let daysSinceIntercourse = null;
+        if(intercourseDate) {
+            daysSinceIntercourse = daysBetween(intercourseDate, today);
+            if(daysSinceIntercourse<0) daysSinceIntercourse=null;
+        }
 
-                // Учёт дней после полового акта (имплантация ~6-12 дней)
-                if (daysSinceIntercourse !== null && daysSinceIntercourse >= 8 && daysSinceIntercourse <= 16) {
-                    pregScore += 2.2;
-                }
+        // Балльная система
+        let pregScore = 0, pmsScore = 0, periScore = 0;
+        const weights = {
+            nausea: [2.8,0.8,0.5], vomiting: [2.0,0.3,0.2], breastTenderness: [2.2,2.5,1.5],
+            breastEnlargement: [1.8,1.0,0.3], fatigue: [1.8,2.0,2.2], frequentUrination: [1.7,0.6,1.2],
+            foodAversions: [2.3,1.0,0.5], cravings: [1.5,1.2,0.4], moodSwings: [1.5,2.3,2.1],
+            bloating: [1.3,2.2,1.7], spotting: [1.6,0.5,1.8], dizziness: [1.2,0.8,1.3],
+            hotFlashes: [0.2,0.4,3.8], vaginalDryness: [0.1,0.2,3.5], sleepDisturbance: [1.0,1.7,2.5],
+            headache: [0.8,1.5,1.6], acne: [0.7,1.8,0.9], lowerBackPain: [0.9,1.5,1.4],
+            abdominalCramps: [0.8,2.0,0.9], constipation: [0.9,1.1,1.0], diarrhea: [0.5,0.9,0.7],
+            metallicTaste: [2.0,0.2,0.1], nosebleeds: [0.8,0.1,0.1], libidoChange: [1.0,1.0,1.3]
+        };
+        selected.forEach(id => {
+            const w = weights[id] || [0,0,0];
+            pregScore += w[0]; pmsScore += w[1]; periScore += w[2];
+        });
 
-                // Формирование текстового вердикта (более 15 вариантов)
-                let title = '';
-                let desc = '';
-                let extra = '';
+        // Модификаторы
+        if(delayDays >= 5) pregScore += (delayDays*0.6);
+        if(delayDays > 14) pregScore += 3;
+        if(daysSinceIntercourse && daysSinceIntercourse>=7 && daysSinceIntercourse<=16) pregScore += 2.2;
+        if(contraception === 'yes') pregScore *= 0.3;
+        if(testResult === 'positive') pregScore += 10;
+        if(testResult === 'negative') pregScore *= 0.15;
+        if(age >= 40) periScore += 2.5;
+        if(age >= 45) periScore += 2.0;
+        if(stress === 'high') { pmsScore += 1.5; delayDays += 1; }
+        if(weightChange !== 'no') { pmsScore += 1.2; }
+        if(regularity === 'irregular') { delayDays = Math.max(delayDays, 3); }
 
-                // Определяем доминирующую категорию
-                const maxScore = Math.max(pregScore, pmsScore, periScore, 0.5);
+        let title='', desc='', recommendation='';
 
-                // Сценарии на основе комбинаций
-                if (delayDays !== null && delayDays >= 5 && pregScore > pmsScore && pregScore > periScore && pregScore >= 6) {
-                    title = '🤰 Высокая вероятность беременности';
-                    desc = `Задержка ${delayDays} дн., симптомы совпадают с ранними признаками. Рекомендуется сделать тест на ХГЧ.`;
-                    extra = 'При положительном тесте запишитесь к гинекологу.';
-                } else if (delayDays !== null && delayDays >= 3 && pregScore >= 4 && daysSinceIntercourse && daysSinceIntercourse >= 6) {
-                    title = '🌱 Возможная беременность (ранний срок)';
-                    desc = `Задержка ${delayDays} дн., после полового акта прошло ${daysSinceIntercourse} дн. Симптомы могут указывать на имплантацию.`;
-                    extra = 'Повторите тест через 2-3 дня.';
-                } else if (delayDays !== null && delayDays >= 7 && pregScore < 4 && pmsScore > pregScore && pmsScore > periScore) {
-                    title = '📆 Вероятен выраженный ПМС с задержкой';
-                    desc = `Задержка ${delayDays} дн., но симптомы больше похожи на предменструальный синдром.`;
-                    extra = 'Если задержка превысит 10 дней, выполните тест на беременность.';
-                } else if (delayDays !== null && delayDays <= 4 && pmsScore >= 5 && pregScore < pmsScore) {
-                    title = '🌸 Типичный предменструальный синдром';
-                    desc = 'Симптомы характерны для ПМС. Задержка небольшая либо отсутствует.';
-                    extra = 'Отслеживайте цикл, при болях можно использовать спазмолитики.';
-                } else if (periScore >= 7 && (!delayDays || delayDays < 5) && selectedSymptoms.includes('hotFlashes')) {
-                    title = '🌡️ Признаки перименопаузы';
-                    desc = 'Приливы, сухость, нарушения сна указывают на гормональную перестройку.';
-                    extra = 'Рекомендована консультация гинеколога-эндокринолога.';
-                } else if (periScore >= 5 && delayDays !== null && delayDays > 20) {
-                    title = '🕰️ Возможна перименопауза с нерегулярным циклом';
-                    desc = `Длительная задержка (${delayDays} дн.) вместе с возрастными симптомами.`;
-                    extra = 'Проверьте уровень ФСГ, эстрадиола.';
-                } else if (delayDays !== null && delayDays > 14 && pregScore < 3 && periScore < 4) {
-                    title = '⚠️ Значительная задержка неясного происхождения';
-                    desc = `Задержка ${delayDays} дн., но симптомов беременности мало. Возможен стресс, гормональный сбой.`;
-                    extra = 'Обратитесь к врачу для УЗИ и анализов.';
-                } else if (selectedSymptoms.length === 0 && delayDays !== null && delayDays >= 3) {
-                    title = '📌 Задержка без других симптомов';
-                    desc = `Задержка ${delayDays} дн., но вы не отметили сопутствующие признаки.`;
-                    extra = 'Стресс, смена климата или физические нагрузки могут влиять на цикл.';
-                } else if (selectedSymptoms.length === 0 && (!delayDays || delayDays === 0)) {
-                    title = '✅ Нет выраженных симптомов';
-                    desc = 'Цикл в пределах нормы, жалоб нет.';
-                    extra = 'Продолжайте следить за самочувствием.';
-                } else if (pregScore > 0 && daysSinceIntercourse && daysSinceIntercourse < 6 && delayDays && delayDays < 3) {
-                    title = '⏳ Слишком рано для выводов';
-                    desc = `После полового акта прошло всего ${daysSinceIntercourse} дн., задержка минимальна.`;
-                    extra = 'Подождите ещё 5-7 дней.';
-                } else if (pmsScore >= 4 && delayDays && delayDays <= 2) {
-                    title = '🌼 Лёгкий ПМС';
-                    desc = 'Небольшие предменструальные проявления.';
-                    extra = 'Пейте больше воды, уменьшите кофеин.';
-                } else if (periScore >= 4 && pregScore < 2 && delayDays && delayDays > 10) {
-                    title = '🔄 Гормональная нестабильность';
-                    desc = 'Задержка и симптомы могут говорить о переходном периоде.';
-                    extra = 'Контроль гормонов щитовидной железы также важен.';
-                } else if (pregScore >= 3 && delayDays && delayDays >= 1 && delayDays <= 4) {
-                    title = '🔍 Ранние признаки: наблюдайте';
-                    desc = `Задержка ${delayDays} дн., некоторые симптомы совпадают с беременностью.`;
-                    extra = 'Сделайте тест при задержке от 5 дней.';
-                } else if (selectedSymptoms.includes('spotting') && delayDays && delayDays < 3) {
-                    title = '🩸 Имплантационное кровотечение?';
-                    desc = 'Кровянистые выделения при небольшой задержке могут быть имплантацией.';
-                    extra = 'Наблюдайте, если выделения усилятся – к врачу.';
-                } else {
-                    title = '🧭 Смешанная картина';
-                    desc = 'Симптомы могут относиться к разным состояниям.';
-                    extra = 'Для точной диагностики сдайте кровь на ХГЧ и прогестерон.';
-                }
+        // Логика вердикта (более 20 сценариев)
+        if(testResult==='positive') {
+            title='✅ Беременность подтверждена тестом';
+            desc='Домашний тест показал положительный результат.';
+            recommendation='Запишитесь к гинекологу для постановки на учёт.';
+        } else if(delayDays>=5 && pregScore>=7 && testResult==='none') {
+            title='🤰 Высокая вероятность беременности';
+            desc=`Задержка ${delayDays} дн., симптомы характерны для раннего срока.`;
+            recommendation='Сделайте аптечный тест на ХГЧ или сдайте кровь.';
+        } else if(delayDays>=3 && pregScore>=4 && daysSinceIntercourse && daysSinceIntercourse>=8) {
+            title='🌱 Возможная беременность (ранний срок)';
+            desc=`Задержка ${delayDays} дн., после полового акта прошло ${daysSinceIntercourse} дн.`;
+            recommendation='Повторите тест через 2-3 дня.';
+        } else if(delayDays>=7 && pmsScore>pregScore && pmsScore>periScore && pregScore<4) {
+            title='📆 Выраженный ПМС с задержкой';
+            desc=`Задержка ${delayDays} дн., но симптомы преимущественно предменструальные.`;
+            recommendation='Если задержка более 10 дней – сделайте тест.';
+        } else if(delayDays<=5 && pmsScore>=4 && pregScore<3) {
+            title='🌼 Типичный предменструальный синдром';
+            desc='Симптомы соответствуют ПМС.';
+            recommendation='Отслеживайте цикл, при болях – спазмолитики.';
+        } else if(periScore>=7 && age>=42 && selected.includes('hotFlashes')) {
+            title='🌡️ Признаки перименопаузы';
+            desc='Приливы, сухость, возрастные изменения.';
+            recommendation='Консультация гинеколога-эндокринолога.';
+        } else if(delayDays>20 && periScore>=5) {
+            title='🕰️ Длительная задержка (возможна перименопауза)';
+            desc=`Задержка ${delayDays} дн., гормональная перестройка.`;
+            recommendation='Проверьте ФСГ, эстрадиол.';
+        } else if(delayDays>14 && pregScore<3 && periScore<3) {
+            title='⚠️ Значительная задержка неясной этиологии';
+            desc=`Задержка ${delayDays} дн. Возможен стресс, СПКЯ, щитовидная железа.`;
+            recommendation='Обратитесь к врачу для УЗИ и анализов.';
+        } else if(selected.length===0 && delayDays>=3) {
+            title='📌 Задержка без других симптомов';
+            desc=`Задержка ${delayDays} дн., другие признаки отсутствуют.`;
+            recommendation='Стресс, нагрузки, смена климата. При задержке >10 дней – к врачу.';
+        } else if(selected.length===0 && delayDays===0) {
+            title='✅ Нет отклонений';
+            desc='Цикл в норме, симптомы не выражены.';
+            recommendation='Продолжайте наблюдение.';
+        } else if(daysSinceIntercourse && daysSinceIntercourse<6 && delayDays<3) {
+            title='⏳ Слишком рано для оценки';
+            desc=`После полового акта прошло ${daysSinceIntercourse} дн.`;
+            recommendation='Подождите 7-10 дней после полового акта.';
+        } else if(selected.includes('spotting') && delayDays<4 && pregScore>=2) {
+            title='🩸 Возможно имплантационное кровотечение';
+            desc='Кровянистые выделения при небольшой задержке.';
+            recommendation='Наблюдайте, через 3-4 дня сделайте тест.';
+        } else if(contraception==='yes' && delayDays>=5) {
+            title='💊 Задержка на фоне контрацепции';
+            desc='Гормональные средства могут влиять на цикл.';
+            recommendation='Пропустите тест? Исключите беременность.';
+        } else if(stress==='high' && delayDays>=3) {
+            title='🧠 Задержка из-за стресса';
+            desc='Высокий уровень стресса влияет на гормоны.';
+            recommendation='Постарайтесь снизить нагрузку.';
+        } else if(weightChange!=='no' && delayDays>=4) {
+            title='⚖️ Изменение веса и цикл';
+            desc='Резкое похудение или набор влияют на менструацию.';
+            recommendation='Нормализуйте питание.';
+        } else if(age<20 && delayDays>7) {
+            title='👧 Юный возраст, нестабильный цикл';
+            desc='У подростков цикл может быть нерегулярным.';
+            recommendation='Консультация детского гинеколога.';
+        } else {
+            title='🧭 Смешанная картина';
+            desc='Симптомы могут относиться к разным состояниям.';
+            recommendation='Для точной диагностики сдайте кровь на ХГЧ.';
+        }
 
-                // Дополнительно уточним, если много симптомов
-                if (selectedSymptoms.length >= 7) {
-                    extra += ' Большое количество симптомов – повод для внепланового осмотра.';
-                }
+        document.getElementById('verdictBox').innerHTML = `
+            <div class="verdict-title">${title}</div>
+            <div class="verdict-desc">${desc}</div>
+            <div style="margin-top:0.7rem; color:#6b4e5a;">💡 ${recommendation}</div>
+            <div style="font-size:0.75rem; margin-top:0.6rem; color:#b2949f;">
+                Задержка: ${delayDays} дн. • Дней после ПА: ${daysSinceIntercourse??'—'}
+            </div>`;
+    }
 
-                verdictBox.innerHTML = `
-                    <div class="verdict-title">${title}</div>
-                    <div class="verdict-desc">${desc}</div>
-                    <div class="additional-info">📋 ${extra}</div>
-                    <div style="font-size:0.75rem; margin-top:0.6rem; color:#b2949f;">
-                        Задержка: ${delayDays !== null ? delayDays + ' дн.' : 'не рассчитана'} • 
-                        После ПА: ${daysSinceIntercourse !== null ? daysSinceIntercourse + ' дн.' : '—'}
-                    </div>
-                `;
-            }
+    document.getElementById('calculateBtn').addEventListener('click', generateVerdict);
+    document.getElementById('resetBtn').addEventListener('click', ()=>{
+        document.querySelectorAll('input[type=date]').forEach(i=>i.value='');
+        document.querySelectorAll('#symptomsContainer input').forEach(cb=>cb.checked=false);
+        document.getElementById('ageInput').value=28;
+        document.getElementById('cycleLengthInput').value=28;
+        document.getElementById('cycleRegularity').value='regular';
+        document.getElementById('pregnancyTest').value='none';
+        document.getElementById('hormonalContraception').value='no';
+        document.getElementById('stressLevel').value='low';
+        document.getElementById('weightChange').value='no';
+        document.getElementById('verdictBox').innerHTML = `<div class="verdict-title">✨ Ожидание данных</div><div class="verdict-desc">Заполните анкету и нажмите кнопку анализа.</div>`;
+    });
 
-            function resetAll() {
-                if (lastPeriodInput) lastPeriodInput.value = '';
-                if (intercourseInput) intercourseInput.value = '';
-                document.querySelectorAll('#symptomsContainer input[type="checkbox"]').forEach(cb => cb.checked = false);
-                verdictBox.innerHTML = `<div class="verdict-title">✨ Ожидание данных</div><div class="verdict-desc">Заполните календарь и отметьте симптомы.</div>`;
-            }
-
-            function bindEvents() {
-                calcBtn?.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    generateVerdict();
-                });
-                resetBtn?.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    resetAll();
-                });
-                container?.addEventListener('change', (e) => {
-                    if (e.target && e.target.type === 'checkbox') {
-                        // Автообновление вердикта при изменении симптомов (опционально)
-                        generateVerdict();
-                    }
-                });
-                // Автообновление при смене дат
-                lastPeriodInput?.addEventListener('change', generateVerdict);
-                intercourseInput?.addEventListener('change', generateVerdict);
-            }
-
-            renderSymptoms();
-            bindEvents();
-            // Установим сегодняшнюю дату по умолчанию для удобства (опционально)
-            if (lastPeriodInput && !lastPeriodInput.value) {
-                const defaultPeriod = new Date();
-                defaultPeriod.setDate(defaultPeriod.getDate() - 28);
-                lastPeriodInput.value = defaultPeriod.toISOString().split('T')[0];
-            }
-        })();
-    </script>
+    renderSymptoms();
+    if(!document.getElementById('lastPeriodDate').value) {
+        const d = new Date(); d.setDate(d.getDate()-28);
+        document.getElementById('lastPeriodDate').value = d.toISOString().split('T')[0];
+    }
+})();
+</script>
 </body>
 </html>
